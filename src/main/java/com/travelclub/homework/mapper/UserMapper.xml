@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.travelclub.homework.mapper.UserMapper">
+	<select id="checkUserId"  parameterType="com.travelclub.homework.vo.ReviewRequestVO" resultType="boolean">
+		SELECT IF(COUNT(user_id) = 1, 1, 0)
+		FROM User
+		WHERE user_id = #{userId}
+	</select>
+	
+	<select id="insertUserId" parameterType="string">
+		INSERT INTO User(user_id)
+		VALUES(#{userId})
+	</select>
+</mapper>

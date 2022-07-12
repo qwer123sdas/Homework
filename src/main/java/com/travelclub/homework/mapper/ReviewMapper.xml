@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.travelclub.homework.mapper.ReviewMapper">
+
+		<!-- 리뷰 중복 체크하기 -->
+	<select id="checkDuplication" parameterType="com.travelclub.homework.vo.ReviewRequestVO" resultType="boolean">
+		SELECT IF(COUNT(review_id) = 1, 1, 0)
+		FROM Review 
+		WHERE place_id = #{placeId} AND user_id = #{userId}  AND action NOT IN ('DELETE')
+	</select>
+	
+	<!--첫번 째 리뷰인지 확인  -->
+	<select id="selectFirstReview" parameterType="string" resultType="boolean">
+		SELECT IF(COUNT(r.review_id) >= 1, 1, 0)
+		FROM Review r LEFT JOIN Place p ON p.place_id = r.place_id
+		WHERE r.place_id = #{placeId} AND r.action NOT IN ('DELETE')
+	</select>
+	
+	
+	<!-- 리뷰 작성 -->
+	<insert id="insertReview" parameterType="com.travelclub.homework.vo.ReviewRequestVO">
+		INSERT INTO Review(review_id, user_id, place_id, content)
+				   VALUES(#{reviewId}, #{userId}, #{placeId}, #{content})
+	</insert>
+	
+	<!-- 리뷰 수정 - action MOD로 변경 -->
+	<update id="updateReview">
+		UPDATE Review SET content = #{content},
+						  action = #{action}
+					  WHERE review_id = #{reviewId}
+	</update>
+
+	<!-- 리뷰 삭제 -->
+	<update id="deleteReview" parameterType="com.travelclub.homework.vo.ReviewRequestVO">
+		UPDATE Review SET action = #{action}
+		WHERE review_id = #{reviewId}
+	</update>
+
+</mapper>
+
+
+	

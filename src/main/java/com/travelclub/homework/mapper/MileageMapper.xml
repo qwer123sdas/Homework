@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.travelclub.homework.mapper.MileageMapper">
+	<!-- 포인트 적립 & 수정 & 삭제-->
+	<insert id="insertReviewPoint" parameterType="com.travelclub.homework.vo.MileageLogVO">
+		INSERT INTO Point(point_id, user_id, review_id, type, point, comment)
+   		 VALUES(#{pointId}, #{userId}, #{reviewId}, #{type}, #{point}, #{comment} );
+	</insert>
+
+	
+	<!-- 회원 마일리지 총액 가져오기 -->
+	<select id="selectSumMileageByUserId" parameterType="string" resultType="int">
+		SELECT SUM(point)
+   		FROM Point
+    	WHERE user_id = #{userId}
+	</select>
+	
+	<!-- 회원 마일리지 로그기록 가져오기 -->
+	<select id="findAll" resultType="com.travelclub.homework.vo.MileageLogVO">
+		SELECT point_id pointId,
+			   review_id reviewId,
+			   user_id userId,
+			   type,
+			   comment,
+			   point,
+			   inserted
+		FROM Point
+		WHERE user_id = #{userId}
+		GROUP BY point_id 
+		<if test="page == 0">  
+		ORDER BY inserted DESC
+		</if>
+		<if test='page != 0'> 
+		ORDER BY inserted DESC LIMIT 0, #{page}
+		</if>
+	</select>
+</mapper>

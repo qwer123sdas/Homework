@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.travelclub.homework.mapper.AttachedPhotoMapper">
+	<!-- 리뷰 작성 - 사진 추가 -->
+	<insert id="insertReviewAttechedPhoto">
+		INSERT INTO Photo(atteched_photo_id, review_id)
+				VALUES(#{attachedPhoto}, #{reviewId})
+	</insert>
+	
+	<!-- 리뷰 수정 - 사진 있는지 확인 -->
+	<select id="selectOriginReviewAttachedPhotoCount" parameterType="string" resultType="int">
+		SELECT IFNULL(
+			(SELECT IFNULL(COUNT(atteched_photo_id), 0)
+			FROM Photo
+			WHERE review_id = #{reviewId}
+			GROUP BY review_id),
+			0
+		)
+	</select>
+	
+	<!-- 리뷰 수정/삭제 - 해당 reviewId의 기존 사진 모두 삭제 -->
+	<delete id="deleteAttachedPhotoByReviewId">
+		DELETE FROM Photo
+		WHERE review_id = #{reviewId}
+	</delete>
+</mapper>

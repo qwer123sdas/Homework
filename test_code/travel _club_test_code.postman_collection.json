@@ -1,0 +1,339 @@
+{
+	"info": {
+		"_postman_id": "29f09a61-527e-4d6f-9d2d-bee766263204",
+		"name": "travel club Copy",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "21813600"
+	},
+	"item": [
+		{
+			"name": "add default",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"type\": \"REVIEW\",\r\n\"action\": \"ADD\",\r\n\"reviewId\": \"240a0658-dc5f-4878-9381-ebb7b2667772\",\r\n\"content\": \"좋아요!\",\r\n\"attachedPhotoIds\": [\"e4d1a64e-a531-46de-88d0-ff0ed70c0bb8\", \"afb0cef2-851d-4a50-bb07-9cc15cbdc332\"],\r\n\"userId\": \"3ede0ef2-92b7-4817-a5f3-0c575361f745\",\r\n\"placeId\": \"2e4baf1c-5acb-4efb-a1af-eddada31b00f\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8083/events",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8083",
+					"path": [
+						"events"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "add 리뷰 또쓰려고 할 때, 오류",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"type\": \"REVIEW\",\r\n\"action\": \"ADD\",\r\n\"reviewId\": \"240a0658-dc5f-4878-9381-ebb7b2668883\",\r\n\"content\": \"리뷰 또 써요!\",\r\n\"attachedPhotoIds\": [\"e4d1a64e-a531-46de-88d0-ff0ed70c0bb8\", \"afb0cef2-851d-4a50-bb07-9cc15cbdc332\"],\r\n\"userId\": \"3ede0ef2-92b7-4817-a5f3-0c575361f745\",\r\n\"placeId\": \"2e4baf1c-5acb-4efb-a1af-eddada31b00f\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/travelclub/event",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"travelclub",
+						"event"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "modify content만 수정 + (사진추가)",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"type\": \"REVIEW\",\r\n\"action\": \"MOD\",\r\n\"reviewId\": \"240a0658-dc5f-4878-9381-ebb7b2667772\",\r\n\"content\": \"좋아요 수정!\",\r\n\"attachedPhotoIds\": [\"e4d1a64e-a531-46de-88d0-ff0ed70c0bb8\", \"afb0cef2-851d-4a50-bb07-9cc15cbdc332\"],\r\n\"userId\": \"3ede0ef2-92b7-4817-a5f3-0c575361f745\",\r\n\"placeId\": \"2e4baf1c-5acb-4efb-a1af-eddada31b00f\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8083/events",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8083",
+					"path": [
+						"events"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "modify photo 사진 전부 삭제",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"type\": \"REVIEW\",\r\n\"action\": \"MOD\",\r\n\"reviewId\": \"240a0658-dc5f-4878-9381-ebb7b2667772\",\r\n\"content\": \"좋아요 사진 수정!\",\r\n\"attachedPhotoIds\": [],\r\n\"userId\": \"3ede0ef2-92b7-4817-a5f3-0c575361f745\",\r\n\"placeId\": \"2e4baf1c-5acb-4efb-a1af-eddada31b00f\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8083/events",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8083",
+					"path": [
+						"events"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "modify photo, 사진 삭제하고 다시 추가 할 때",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"type\": \"REVIEW\",\r\n\"action\": \"MOD\",\r\n\"reviewId\": \"240a0658-dc5f-4878-9381-ebb7b2667772\",\r\n\"content\": \"좋아요 사진 다시 추가!\",\r\n\"attachedPhotoIds\": [\"e4d1a64e-a531-46de-88d0-ff0ed70c0bb8\", \"afb0cef2-851d-4a50-bb07-9cc15cbdc332\"],\r\n\"userId\": \"3ede0ef2-92b7-4817-a5f3-0c575361f745\",\r\n\"placeId\": \"2e4baf1c-5acb-4efb-a1af-eddada31b00f\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8083/events",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8083",
+					"path": [
+						"events"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "modify content, 만약 content \"\"일 때",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"type\": \"REVIEW\",\r\n\"action\": \"MOD\",\r\n\"reviewId\": \"240a0658-dc5f-4878-9381-ebb7b2667772\",\r\n\"content\": \"\",\r\n\"attachedPhotoIds\": [\"e4d1a64e-a531-46de-88d0-ff0ed70c0bb8\", \"afb0cef2-851d-4a50-bb07-9cc15cbdc332\"],\r\n\"userId\": \"3ede0ef2-92b7-4817-a5f3-0c575361f745\",\r\n\"placeId\": \"2e4baf1c-5acb-4efb-a1af-eddada31b00f\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8083/events",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8083",
+					"path": [
+						"events"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "modify photo,  1장만",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"type\": \"REVIEW\",\r\n\"action\": \"MOD\",\r\n\"reviewId\": \"240a0658-dc5f-4878-9381-ebb7b2667772\",\r\n\"content\": \"사진 한장만 추가!\",\r\n\"attachedPhotoIds\": [\"e4d1a64e-a531-46de-88d0-ff0ed70c0bb8\"],\r\n\"userId\": \"3ede0ef2-92b7-4817-a5f3-0c575361f745\",\r\n\"placeId\": \"2e4baf1c-5acb-4efb-a1af-eddada31b00f\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8083/events",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8083",
+					"path": [
+						"events"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "add 다른 사람 리뷰",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"type\": \"REVIEW\",\r\n\"action\": \"ADD\",\r\n\"reviewId\": \"240a0658-dc5f-4878-9381-aff7b2669992\",\r\n\"content\": \"다른사람의 좋아요!\",\r\n\"attachedPhotoIds\": [\"e4d1a64e-a531-46de-88d0-ff0ed70c0cc8\", \"afb0cef2-851d-4a50-bb07-9cc15cafc332\"],\r\n\"userId\": \"9ec1ff63-1783-4365-801e-8f09d1e6e1f2\",\r\n\"placeId\": \"2e4baf1c-5acb-4efb-a1af-eddada31b00f\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8083/events",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8083",
+					"path": [
+						"events"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete review",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"type\": \"REVIEW\",\r\n\"action\": \"DELETE\",\r\n\"reviewId\": \"240a0658-dc5f-4878-9381-ebb7b2667772\",\r\n\"content\": \"리뷰 삭제!\",\r\n\"userId\": \"3ede0ef2-92b7-4817-a5f3-0c575361f745\",\r\n\"placeId\": \"2e4baf1c-5acb-4efb-a1af-eddada31b00f\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8083/events",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8083",
+					"path": [
+						"events"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "리뷰 작성한 거 지우고 다시 리뷰 작성",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"type\": \"REVIEW\",\r\n\"action\": \"ADD\",\r\n\"reviewId\": \"240a0658-dc5f-4878-9381-ebb7b2668882\",\r\n\"content\": \"다시 좋아요!\",\r\n\"attachedPhotoIds\": [\"e4d1a64e-a531-46de-88d0-ff0ed70c0bb8\", \"afb0cef2-851d-4a50-bb07-9cc15cbdc332\"],\r\n\"userId\": \"3ede0ef2-92b7-4817-a5f3-0c575361f745\",\r\n\"placeId\": \"2e4baf1c-5acb-4efb-a1af-eddada31b00f\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8083/events",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8083",
+					"path": [
+						"events"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "포인트 적립 확인",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8083/mileages/3ede0ef2-92b7-4817-a5f3-0c575361f745?page=0",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8083",
+					"path": [
+						"mileages",
+						"3ede0ef2-92b7-4817-a5f3-0c575361f745"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "0"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

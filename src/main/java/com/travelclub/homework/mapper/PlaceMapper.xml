@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.travelclub.homework.mapper.PlaceMapper">
+	<!-- 장소 있는지 확인 -->
+	<select id="checkPlaceId" parameterType="com.travelclub.homework.vo.ReviewRequestVO" resultType="boolean">
+		SELECT IF(COUNT(place_id), 1, 0)
+		FROM Place
+		WHERE place_id = #{placeId}
+	</select>
+</mapper>
