@@ -1,4 +1,4 @@
-// default
+// default 
 POST http://localhost:8083/events
 Content-Type: application/json
 {
@@ -68,4 +68,31 @@ Content-Type: application/json
 
 // 마일리지 확인
 GET http://localhost:8083/mileages/3ede0ef2-92b7-4817-a5f3-0c575361f745?page=0
+
+
+// 다른 사람의 리뷰 
+POST http://localhost:8083/events
+Content-Type: application/json
+{
+"type": "REVIEW",
+"action": "ADD",
+"reviewId": "240a0658-dc5f-4878-9381-aff7b2669992",
+"content": "다른사람의 좋아요!",
+"attachedPhotoIds": ["e4d1a64e-a531-46de-88d0-ff0ed70c0cc8", "afb0cef2-851d-4a50-bb07-9cc15cafc332"],
+"userId": "9ec1ff63-1783-4365-801e-8f09d1e6e1f2",
+"placeId": "2e4baf1c-5acb-4efb-a1af-eddada31b00f"
+}
+
+// default 유저의 다른 장소 리뷰작성
+POST http://localhost:8083/events
+Content-Type: application/json
+{
+"type": "REVIEW",
+"action": "ADD",
+"reviewId": "240a0658-dc5f-4878-9381-ebb7b2668782",
+"content": "다른 장소 좋아요!",
+"attachedPhotoIds": ["e4d1a64e-a531-46de-88d0-ff0ed70c0bb9", "afb0cef2-851d-4a50-bb07-9cc15cbdc339"],
+"userId": "3ede0ef2-92b7-4817-a5f3-0c575361f745",
+"placeId": "7e234855-abee-449a-b632-dc6d366585c5"
+}
 
