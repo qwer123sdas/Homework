@@ -15,7 +15,7 @@ git clone https://github.com/qwer123sdas/Mileage_Homework.git
 docker run --name mysql-container -e MYSQL_ROOT_PASSWORD=root -d -p 3306:3306 mysql:8.0.28
 ./mvnw spring-boot:run
 
-port는 8083으로 필요한 request를 보내면 실행할 수 있습니다.
+port는 8083으로 실행할 수 있습니다.
 docker conatiner로 인한 mysql은 hostname은 127.0.0.1로, user_name은 root, 
         password는 root 그리고 port는 3306으로 하시면 됩니다.
 
