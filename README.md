@@ -11,18 +11,19 @@
 ## **실행방법**
 
 ```
-git clone https://github.com/qwer123sdas/Mileage_HomeWork.git
+git clone https://github.com/qwer123sdas/Mileage_Homework.git
 docker run --name mysql-container -e MYSQL_ROOT_PASSWORD=root -d -p 3306:3306 mysql:8.0.28
 ./mvnw spring-boot:run
 
-port는 8083으로 필요한 request를 보내면 실행할 수 있습니다.
-docker conatiner로 인한 mysql은 hostname은 127.0.0.1로, user_name은 root, password는 root 그리고 port는 3306으로 하시면 됩니다.
+port 8083으로 실행할 수 있습니다.
+docker conatiner로 인한 mysql 은 hostname은 127.0.0.1로, user_name은 root, 
+        password는 root 그리고 port는 3306으로 하시면 됩니다.
 
 POST / events : http://localhost:8083/events
 GET / mileages : http://localhost:8083//mileages/{user_id}?page={pageNum}
 ```
 ```
-※ 빠르게 결과만 확인하기
+※ 설치없이 빠르게 결과만 확인하기
 아래의 경로로 테스트 케이스를 보내면 request에 따른 response만 빠르게 확인 할 수 있습니다.
 POST / events : http://13.124.183.14/travel/events
 GET / mileages : http://13.124.183.14/travel/mileages/{user_id}
@@ -52,10 +53,13 @@ place_id : 2e4baf1c-5acb-4efb-a1af-eddada31b00f,
 - 모든 id는 pk이고 다른 테이블의 id를 참조할 때, fk를 주어 정규화시켜주었습니다.
 - pk는 자동적으로 유니크 인덱스를 생성하기 때문에, pk만 스캔하도록 하여 전체 테이블 스캔이 이루어지지 않도록 했습니다.
 
-- 만약 fk에 create index를 하기 원한다면 한다면 아래와 같이 실행합니다.
-</br>
+- 만약 fk에 create index를 하기 원한다면 한다면 아래와 sql을 사용하면 됩니다.
+```
 create index idx_user on Point (user_id);
 create index idx_place on Point (place_id);
+```
+</br>
+
 
 
 </br>
