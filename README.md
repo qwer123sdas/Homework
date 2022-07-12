@@ -55,8 +55,8 @@ place_id : 2e4baf1c-5acb-4efb-a1af-eddada31b00f,
 
 - fk에 create index를 하기 원한다면 한다면 아래의 sql을 사용하면 됩니다.
 ```
-create index idx_user on Point (user_id);
-create index idx_place on Point (place_id);
+create index idx_user on Mileage (user_id);
+create index idx_place on Mileage (place_id);
 ```
 
 ## **Table**
