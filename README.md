@@ -130,7 +130,7 @@ type의 'A'는 Add의 앞글자,'D'는 Delete의 앞글자 입니다. comment는
             "point": -1,
             "userId": "3ede0ef2-92b7-4817-a5f3-0c575361f745",
             "reviewId": "240a0658-dc5f-4878-9381-ebb7b2667772",
-            "type": "A",
+            "type": "D",
             "comment": "사진삭제",
             "inserted": "2022-07-10 16:13:46"
         },
