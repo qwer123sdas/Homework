@@ -92,6 +92,7 @@ delete review!
 GET / mileages/{userId}?page={pageNum}
 
 입력되는 유저 아이디에 맞게 작성된 리뷰 마일리지의 합산값과 리뷰를 추가/수정/삭제하며 변화된 마일리지 내역들을 보여줍니다.
+type의 'A'는 Add의 앞글자,'D'는 Delete의 앞글자 입니다. comment는 어떠한 이유로 포인트가 증감했는지 간략하게 알려줍니다.
 ```
 ```
 응답 샘플 : 
