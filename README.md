@@ -48,16 +48,20 @@ place_id : 2e4baf1c-5acb-4efb-a1af-eddada31b00f,
    
 ## **ERD**
 
-![ERD](./image/ERD.png)
+![ERD](./image/ERD.jpg)
 
 - 모든 id는 pk이고 다른 테이블의 id를 참조할 때, fk를 주어 정규화시켜주었습니다.
 - pk는 자동적으로 유니크 인덱스를 생성하기 때문에, pk만 스캔하도록 하여 전체 테이블 스캔이 이루어지지 않도록 했습니다.
 
 - fk에 create index를 하기 원한다면 한다면 아래의 sql을 사용하면 됩니다.
 ```
-create index idx_user on Point (user_id);
-create index idx_place on Point (place_id);
+create index idx_user on Mileage (user_id);
+create index idx_place on Mileage (place_id);
 ```
+
+## **Table**
+![ERD](./image/Table.jpg)
+
 </br>
 
 
@@ -91,7 +95,7 @@ delete review!
 ```
 GET / mileages/{userId}?page={pageNum}
 
-입력되는 유저 아이디에 맞게 작성된 리뷰 마일리지의 합산값과 리뷰를 추가/수정/삭제하며 변화된 마일리지 내역들을 보여줍니다.
+입력되는 유저 아이디에 맞게 작성된 리뷰 마일리지의 합산값과 변화된 마일리지 적립 내역들을 보여줍니다.
 type의 'A'는 Add의 앞글자,'D'는 Delete의 앞글자 입니다. comment는 어떠한 이유로 포인트가 증감했는지 간략하게 알려줍니다.
 ```
 ```
