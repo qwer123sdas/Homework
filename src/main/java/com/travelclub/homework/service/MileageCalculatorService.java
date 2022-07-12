@@ -56,7 +56,7 @@ public class MileageCalculatorService {
 
 	// 리뷰 삭제 시, 해당 장소의 리뷰의 총포인트를 마이너스로 추가
 	public void deleteReviewPoint(ReviewRequestVO request) {
-		int sum =calculateSumPoint(request.getUserId());
+		int sum =mapper.calculateSumPointByUserIdAndReviewId(request.getUserId(), request.getReviewId());
 		MileageLogVO mileage = new MileageLogVO(-1 * sum, DELETE_REIVEW, POINT_D, request.getUserId(), request.getReviewId());
 		mapper.insertReviewPoint(mileage);
 	}

@@ -8,13 +8,19 @@
 		INSERT INTO Mileage(mileage_id, user_id, review_id, type, point, comment)
    		 VALUES(#{mileageId}, #{userId}, #{reviewId}, #{type}, #{point}, #{comment} );
 	</insert>
-
 	
 	<!-- 회원 마일리지 총액 가져오기 -->
 	<select id="selectSumMileageByUserId" parameterType="string" resultType="int">
 		SELECT SUM(point)
    		FROM Mileage
     	WHERE user_id = #{userId}
+	</select>
+	
+	<!-- 삭제시 해당 리뷰의 마일리지 총액가져오기 -->
+	<select id="calculateSumPointByUserIdAndReviewId" resultType="int">
+		SELECT SUM(point)
+   		FROM Mileage
+    	WHERE user_id = #{userId} AND review_id = #{reviewId}
 	</select>
 	
 	<!-- 회원 마일리지 로그기록 가져오기 -->
