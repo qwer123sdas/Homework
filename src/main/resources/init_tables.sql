@@ -25,8 +25,8 @@ CREATE TABLE Photo(
     FOREIGN KEY(review_id) REFERENCES Review(review_id)
 );
 
-CREATE TABLE Point(
-	`point_id` binary(36) primary key,
+CREATE TABLE Mileage(
+	`mileage_id` binary(36) primary key,
     `user_id` binary(36) NOT NULL,
     `review_id` binary(36) NOT NULL,
     `type` char(1) NOT NULL,

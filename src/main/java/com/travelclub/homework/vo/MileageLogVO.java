@@ -8,7 +8,7 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
 @Data
 public class MileageLogVO {
-	private String pointId;
+	private String mileageId;
 	
 	private int point;
 
@@ -26,7 +26,7 @@ public class MileageLogVO {
 		
 	}
 	public MileageLogVO(int point, String comment, char type, String userId, String reviewId) {
-		this.pointId = UUID.randomUUID().toString();
+		this.mileageId = UUID.randomUUID().toString();
 		this.point = point;
 		this.comment = comment;
 		this.type = type;

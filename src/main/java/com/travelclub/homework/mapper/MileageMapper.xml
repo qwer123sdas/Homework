@@ -5,30 +5,30 @@
 <mapper namespace="com.travelclub.homework.mapper.MileageMapper">
 	<!-- 포인트 적립 & 수정 & 삭제-->
 	<insert id="insertReviewPoint" parameterType="com.travelclub.homework.vo.MileageLogVO">
-		INSERT INTO Point(point_id, user_id, review_id, type, point, comment)
-   		 VALUES(#{pointId}, #{userId}, #{reviewId}, #{type}, #{point}, #{comment} );
+		INSERT INTO Mileage(mileage_id, user_id, review_id, type, point, comment)
+   		 VALUES(#{mileageId}, #{userId}, #{reviewId}, #{type}, #{point}, #{comment} );
 	</insert>
 
 	
 	<!-- 회원 마일리지 총액 가져오기 -->
 	<select id="selectSumMileageByUserId" parameterType="string" resultType="int">
 		SELECT SUM(point)
-   		FROM Point
+   		FROM Mileage
     	WHERE user_id = #{userId}
 	</select>
 	
 	<!-- 회원 마일리지 로그기록 가져오기 -->
 	<select id="findAll" resultType="com.travelclub.homework.vo.MileageLogVO">
-		SELECT point_id pointId,
+		SELECT mileage_id mileageId,
 			   review_id reviewId,
 			   user_id userId,
 			   type,
 			   comment,
 			   point,
 			   inserted
-		FROM Point
+		FROM Mileage
 		WHERE user_id = #{userId}
-		GROUP BY point_id 
+		GROUP BY mileage_id 
 		<if test="page == 0">  
 		ORDER BY inserted DESC
 		</if>

@@ -8,7 +8,4 @@ import com.travelclub.homework.vo.ReviewRequestVO;
 public interface UserMapper {
 	// 유저 존재하는지 확인
 	boolean checkUserId(ReviewRequestVO requestVO);
-	
-	// 유저 아이디 저장
-	void insertUserId(String userId);
 }
