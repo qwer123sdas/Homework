@@ -25,12 +25,6 @@ mysql은 docker를 통해 사용할 수 있습니다.
 POST / events : http://localhost:8083/events
 GET / mileages : http://localhost:8083/mileages/{user_id}?page={pageNum}
 ```
-```
-※ 설치없이 빠르게 결과만 확인하기
-아래의 경로로 테스트 케이스를 보내면 request에 따른 response만 빠르게 확인 할 수 있습니다.
-POST / events : http://13.124.183.14/travel/events
-GET / mileages : http://13.124.183.14/travel/mileages/{user_id}
-```
 
 ## 테스트 케이스 id
 ```
