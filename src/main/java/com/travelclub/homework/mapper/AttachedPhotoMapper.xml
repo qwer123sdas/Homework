@@ -5,14 +5,14 @@
 <mapper namespace="com.travelclub.homework.mapper.AttachedPhotoMapper">
 	<!-- 리뷰 작성 - 사진 추가 -->
 	<insert id="insertReviewAttechedPhoto">
-		INSERT INTO Photo(atteched_photo_id, review_id)
+		INSERT INTO Photo(attached_photo_id, review_id)
 				VALUES(#{attachedPhoto}, #{reviewId})
 	</insert>
 	
 	<!-- 리뷰 수정 - 사진 있는지 확인 -->
 	<select id="selectOriginReviewAttachedPhotoCount" parameterType="string" resultType="int">
 		SELECT IFNULL(
-			(SELECT IFNULL(COUNT(atteched_photo_id), 0)
+			(SELECT IFNULL(COUNT(attached_photo_id), 0)
 			FROM Photo
 			WHERE review_id = #{reviewId}
 			GROUP BY review_id),
