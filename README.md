@@ -84,7 +84,7 @@ Requset로 오는 데이터의 type에 따라 리뷰를 추가/수정/삭제하�
 ADD : 처음에 validator을 통해 유효성을 검사합니다. validator에서content는 1 글자 이상 100 글자 이하로 작성하도록 했습니다. 그 외에 장소, 유저
 , type 그리고 리뷰 중복을 확인합니다. 그 다음, 사진과 첫리뷰에 따라 점수를 각각 부여합니다.
 MOD : content와 attachedPhoto를 수정할 수 있도록 했습니다. 그에 따른 점수가 반영됩니다. 다만 수정에 따른 첫리뷰 보너스는 반영되지 않습니다.
-DELETE : content의 type을 바꾸고, 해당 리뷰의 attachedPhoto를 모두 삭제합니다. 마일리지 차감은 한번에 합니다.
+DELETE : content의 type을 바꾸고, 해당 리뷰의 attachedPhoto를 모두 삭제합니다. 마일리지 차감은 한번에 정산합니다.
 
 ```
 ```
