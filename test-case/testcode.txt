@@ -60,7 +60,9 @@ Content-Type: application/json
 {
 "type": "REVIEW",
 "action": "DELETE",
-"reviewId": "240a0658-dc5f-4878-9381-ebb7b2667772"
+"reviewId": "240a0658-dc5f-4878-9381-ebb7b2667772",
+"content": "리뷰 삭제!",
+"userId": "3ede0ef2-92b7-4817-a5f3-0c575361f745"
 }
 
 
