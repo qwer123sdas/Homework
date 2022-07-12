@@ -1,4 +1,4 @@
-USE sys;
+USE travel_club;
 CREATE TABLE Place(
 	`place_id` binary(36) primary key,
     `title` varchar(20) NOT NULL
