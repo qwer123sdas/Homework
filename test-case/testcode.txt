@@ -1,5 +1,5 @@
 // default
-POST http://localhost:8080/travelclub/events
+POST http://localhost:8083/events
 Content-Type: application/json
 {
 "type": "REVIEW",
@@ -13,7 +13,7 @@ Content-Type: application/json
 
 
 // content만 수정
-POST http://localhost:8080/travelclub/events
+POST http://localhost:8083/events
 Content-Type: application/json
 {
 "type": "REVIEW",
@@ -27,7 +27,7 @@ Content-Type: application/json
 
 
 // AttechedPhoto 전부 삭제
-POST http://localhost:8080/travelclub/events
+POST http://localhost:8083/events
 Content-Type: application/json
 {
 "type": "REVIEW",
@@ -41,7 +41,7 @@ Content-Type: application/json
 
 
 // 사진 1장으로 수정
-POST http://localhost:8080/travelclub/events
+POST http://localhost:8083/events
 Content-Type: application/json
 {
 "type": "REVIEW",
@@ -55,7 +55,7 @@ Content-Type: application/json
 
 
 // 리뷰 삭제
-POST http://localhost:8080/travelclub/events
+POST http://localhost:8083/events
 Content-Type: application/json
 {
 "type": "REVIEW",
@@ -65,5 +65,5 @@ Content-Type: application/json
 
 
 // 마일리지 확인
-GET http://localhost:8080/travelclub/mileages/3ede0ef2-92b7-4817-a5f3-0c575361f745?page=0
+GET http://localhost:8083/mileages/3ede0ef2-92b7-4817-a5f3-0c575361f745?page=0
 
