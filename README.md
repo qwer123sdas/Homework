@@ -20,7 +20,7 @@ docker conatiner로 인한 mysql 은 hostname은 127.0.0.1로, user_name은 root
 (임시 properties 파일을 참고하셔도 됩니다.)
 
 POST / events : http://localhost:8083/events
-GET / mileages : http://localhost:8083//mileages/{user_id}?page={pageNum}
+GET / mileages : http://localhost:8083/mileages/{user_id}?page={pageNum}
 ```
 ```
 ※ 설치없이 빠르게 결과만 확인하기
