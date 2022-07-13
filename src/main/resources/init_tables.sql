@@ -20,7 +20,7 @@ CREATE TABLE Review(
 );
 
 CREATE TABLE Photo(
-	`atteched_photo_id` binary(36) primary key,
+	`attached_photo_id` binary(36) primary key,
     `review_id` binary(36) NOT NULL,
     FOREIGN KEY(review_id) REFERENCES Review(review_id)
 );
