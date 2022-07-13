@@ -21,6 +21,9 @@ docker run --name mysql-container -e MYSQL_ROOT_PASSWORD=root -d -p 3306:3306 my
 mysql은 docker를 통해 사용할 수 있습니다.
 (hostname은 127.0.0.1로, user_name은 root, password는 root 그리고 port는 3306으로 하시면 됩니다. 
   테스트상 임시로 올린 properties 파일을 참고하셔도 됩니다.)
+ 
+[7.14 수정]
+sql파일은 폴더 상단에 init_datas.sql과 init_tables.sql에 존재합니다.
 
 POST / events : http://localhost:8083/events
 GET / mileages : http://localhost:8083/mileages/{user_id}?page={pageNum}
